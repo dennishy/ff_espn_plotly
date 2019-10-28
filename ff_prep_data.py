@@ -204,9 +204,11 @@ def teams(maxPeriod):
             team_draft_proj_rank = team['draftDayProjectedRank']
             team_div_id = team['divisionId']
             team_points = team['points']
+            team_id = team['id']
             team_points_adj = team['pointsAdjusted'] #val of adjustment points: e.g. 0 is no adjustment
 
-            df_teams.append({'scoring_period_id':scoring_period_id, 
+            df_teams.append({'team_id':team_id,
+                            'scoring_period_id':scoring_period_id, 
                             'team_abbrev':team_abbrev,
                             'team_cur_proj_rank':team_cur_proj_rank,
                             'team_draft_proj_rank':team_draft_proj_rank,
@@ -230,4 +232,5 @@ if __name__ == '__main__':
     full_roster = pd.merge(roster, players, how='left', on=['scoring_period_id', 'player_id'])
 
     print(full_roster.head())
+    
     print(scoreboard.head())

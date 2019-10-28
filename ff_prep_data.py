@@ -215,8 +215,8 @@ def teams(maxPeriod):
                             'team_points_adj':team_points_adj})
     
     df_teams = pd.DataFrame(df_teams)
-    df_teams.to_pickle('./ff_data/players.pkl')
-    print('pickled data to ./ff_data/players.pkl')
+    df_teams.to_pickle('./ff_data/teams.pkl')
+    print('pickled data to ./ff_data/teams.pkl')
 
     return df_teams
 
@@ -229,5 +229,5 @@ if __name__ == '__main__':
 
     full_roster = pd.merge(roster, players, how='left', on=['scoring_period_id', 'player_id'])
 
-    print(full_roster)
-    print(scoreboard)
+    print(full_roster.head())
+    print(scoreboard.head())

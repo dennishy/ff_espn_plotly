@@ -186,7 +186,8 @@ def map_players(max_period):
 
     df_players = pd.DataFrame(df_players)
     df_players.replace({'player_proteam_id': PRO_TEAM_MAP})
-    
+    df_players.to_pickle('./ff_data/players.pkl')
+    print('pickled data to ./ff_data/players.pkl')
     return df_players
         
 def teams(maxPeriod):
@@ -212,7 +213,11 @@ def teams(maxPeriod):
                             'team_div_id':team_div_id,
                             'team_points':team_points,
                             'team_points_adj':team_points_adj})
+    
     df_teams = pd.DataFrame(df_teams)
+    df_teams.to_pickle('./ff_data/players.pkl')
+    print('pickled data to ./ff_data/players.pkl')
+
     return df_teams
 
 if __name__ == '__main__':
